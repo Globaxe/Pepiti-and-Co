@@ -219,4 +219,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plateforme: {fileID: 1826149365780810}
-  textToWrite: bite
+  textToWrite: test

@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawn : MonoBehaviour {
+public class Spawn : MonoBehaviour
+{
 
 	public GameObject plateforme;
 	public string textToWrite;
@@ -17,14 +18,15 @@ public class spawn : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+	{
 		hasFocus = false;
 		myText = GetComponentInChildren<TextMesh> ();
 		scroll = GameObject.FindObjectOfType<Autoscroller> ();
 		myText.text = textToWrite;
 		workingText = new string[myText.text.Length];
-		for(int i = 0; i<myText.text.Length;i++){
-			workingText[i]=myText.text.ToCharArray()[i].ToString();
+		for (int i = 0; i < myText.text.Length; i++) {
+			workingText [i] = myText.text.ToCharArray () [i].ToString ();
 		}
 		counter = 0;
 		spawning = false;
@@ -33,7 +35,8 @@ public class spawn : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
 		if (!spawning) {
 			if (hasFocus) {
 				if (Input.GetKey (workingText [counter].ToString ())) {
@@ -42,7 +45,6 @@ public class spawn : MonoBehaviour {
 					foreach (string str in workingText) {
 						myText.text += str;
 					}
-					Debug.Log (myText.text);
 					counter++;
 					if (counter == workingText.Length) {
 						spawning = true;
@@ -56,12 +58,12 @@ public class spawn : MonoBehaviour {
 		}
 	}
 
-	public void giveFocus()
+	public void giveFocus ()
 	{
 		hasFocus = true;
 	}
 
-	public void letFocus()
+	public void letFocus ()
 	{
 		hasFocus = false;
 	}

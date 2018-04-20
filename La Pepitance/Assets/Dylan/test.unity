@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nbChilds: 8
-  speed: 0.05
+  speed: 0.01
   prefab: {fileID: 1077834616386874, guid: ebff6162de4659d4b90f760c1587ed5e, type: 2}
 --- !u!1 &672294949
 GameObject:

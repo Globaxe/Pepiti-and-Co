@@ -7,11 +7,12 @@ public class Autoscroller : MonoBehaviour
 	public int nbChilds = 6;
 	public float speed = 0.05f;
 	public GameObject prefab;
+	private int idFocus;
 
 	// Use this for initialization
 	void Start ()
 	{
-		
+		idFocus = 0;
 	}
 	
 	// Update is called once per frame
@@ -35,6 +36,14 @@ public class Autoscroller : MonoBehaviour
 		Transform child = transform.GetChild (0);
 		if (child.position.x < -width / 2) {
 			Destroy (child.gameObject);
+			idFocus = (idFocus == 0) ? 0 : idFocus - 1;
 		}
+		transform.GetChild (idFocus).GetComponent<spawn> ().giveFocus ();
+	}
+
+	public void NextPlateform ()
+	{
+		transform.GetChild (idFocus).GetComponent<spawn> ().letFocus ();
+		idFocus = (idFocus == nbChilds) ? nbChilds - 1 : idFocus + 1;
 	}
 }

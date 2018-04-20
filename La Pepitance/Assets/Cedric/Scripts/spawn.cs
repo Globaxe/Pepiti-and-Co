@@ -12,11 +12,15 @@ public class spawn : MonoBehaviour {
 	private bool spawning;
 	private Color EndColor;
 	private string[] workingText;
+	private bool hasFocus;
+	private Autoscroller scroll;
 
 
 	// Use this for initialization
 	void Start () {
+		hasFocus = false;
 		myText = GetComponentInChildren<TextMesh> ();
+		scroll = GameObject.FindObjectOfType<Autoscroller> ();
 		myText.text = textToWrite;
 		workingText = new string[myText.text.Length];
 		for(int i = 0; i<myText.text.Length;i++){
@@ -31,21 +35,34 @@ public class spawn : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!spawning) {
-			if (Input.GetKey (workingText[counter].ToString ())) {
-				workingText [counter] = "<color=green>" + workingText [counter].ToString () + "</color>";
-				myText.text = "";
-				foreach (string str in workingText) {
-					myText.text += str;
-				}
-				Debug.Log (myText.text);
-				counter++;
-				if (counter == workingText.Length) {
-					spawning = true;
+			if (hasFocus) {
+				if (Input.GetKey (workingText [counter].ToString ())) {
+					workingText [counter] = "<color=green>" + workingText [counter].ToString () + "</color>";
+					myText.text = "";
+					foreach (string str in workingText) {
+						myText.text += str;
+					}
+					Debug.Log (myText.text);
+					counter++;
+					if (counter == workingText.Length) {
+						spawning = true;
+						scroll.GetComponent<Autoscroller> ().NextPlateform ();
+					}
 				}
 			}
 
 		} else {
 			plateforme.GetComponent<Renderer> ().material.color = Color.Lerp (plateforme.GetComponent<Renderer> ().material.color, EndColor, Time.deltaTime);	
 		}
+	}
+
+	public void giveFocus()
+	{
+		hasFocus = true;
+	}
+
+	public void letFocus()
+	{
+		hasFocus = false;
 	}
 }

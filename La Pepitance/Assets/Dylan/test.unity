@@ -181,7 +181,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 651818676}
-  - component: {fileID: 651818675}
   - component: {fileID: 651818677}
   m_Layer: 0
   m_Name: Platypus
@@ -190,17 +189,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &651818675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 651818674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a874e0271a0136d4694fc19de855e611, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &651818676
 Transform:
   m_ObjectHideFlags: 0
@@ -227,7 +215,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nbChilds: 8
   speed: 0.05
-  prefab: {fileID: 1864267578068632, guid: 6f7f9ba0c65436b4a900bae64501c6f7, type: 2}
+  prefab: {fileID: 1077834616386874, guid: ebff6162de4659d4b90f760c1587ed5e, type: 2}
 --- !u!1 &672294949
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &459778328
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -2.539723
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -2.7451844
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.402642
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714718958264156, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3ae35624825aefb46ab104f7dd226981, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &534330615
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,13 +229,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534330615}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.14136292, y: -0, z: -0, w: 0.98995787}
+  m_LocalPosition: {x: -0.31, y: 2.77, z: -9.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 16.253, y: 0, z: 0}
 --- !u!1 &1436827606
 GameObject:
   m_ObjectHideFlags: 0

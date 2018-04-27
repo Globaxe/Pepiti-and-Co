@@ -83,7 +83,11 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider other) {
-		Destroy(this.gameObject);
+		if (other.gameObject.Equals (Player)) {
+			//Player a mal
+			Destroy(this.gameObject);
+		};
+
 	}
 
 	public void giveFocus ()

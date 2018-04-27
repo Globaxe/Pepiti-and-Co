@@ -20,7 +20,6 @@ public class Spawn : MonoBehaviour
 	private string line;
 
 
-
 	// Use this for initialization
 
 	void Start ()

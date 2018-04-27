@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 	public GameObject Player;
 	private Vector3 PlayerPos;
 
-	private float Speed = 1.0f;
+	private float Speed = 0.5f;
 
 
 	// Use this for initialization
@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour
 		// Read the random line
 		line = lines [randomNumber];
 
-		hasFocus = true;
+		hasFocus = false;
 		myText = GetComponentInChildren<TextMesh> ();
 		myText.text = line;
 		workingText = new string[myText.text.Length];

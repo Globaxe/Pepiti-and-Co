@@ -9,7 +9,6 @@ public class GestOpponent : MonoBehaviour {
 	public Time time;
 	public float speed = 2f;
 	public int maxOpp = 3;
-	private int counterFocus = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -18,13 +17,6 @@ public class GestOpponent : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKey (KeyCode.Tab)) {
-			if (counterFocus < transform.childCount) {
-				counterFocus++;
-			} else {
-				counterFocus = 0;
-			}
-		}
 		for(int i =0;i<transform.childCount;i++)
 		{
 			transform.GetChild (i).GetComponent<Attack> ().letFocus ();

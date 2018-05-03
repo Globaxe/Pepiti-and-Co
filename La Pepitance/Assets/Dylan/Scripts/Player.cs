@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 	Autoscroller scroller;
 
 	private bool isJumping;
+	private bool oneJump;
+	Animator anim;
 
 	private float time;
 	public float speed;
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
 	void Start ()
 	{
 		scroller = GameObject.FindObjectsOfType<Autoscroller> () [0];
+		anim = GetComponentInChildren<Animator> ();
+		oneJump = true;
 	}
 
 	void FixedUpdate ()
@@ -23,6 +27,10 @@ public class Player : MonoBehaviour
 
 
 		if (isJumping) {
+			if (oneJump) {
+				anim.SetTrigger ("jump");
+				oneJump = false;
+			}
 			if (Time.time - time < 1) {
 				transform.position = Vector3.MoveTowards (transform.position, new Vector3 (0, plateform.position.y, 0) + transform.position, 1.5f * speed * Time.deltaTime);
 			} else {
@@ -30,9 +38,10 @@ public class Player : MonoBehaviour
 					
 
 				if (transform.position == plateform.position) {
-					
+					anim.SetTrigger ("land");
 					transform.SetParent (plateform);
 					isJumping = false;
+					oneJump = true;
 				}
 
 			}

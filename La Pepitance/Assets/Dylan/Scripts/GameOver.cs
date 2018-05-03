@@ -41,14 +41,13 @@ public class GameOver : MonoBehaviour
 			}
 			counter++;
 			if (counter == workingText.Length) {
-				RestartGame (0);
+				RestartGame (1);
 			}
 		}
 	}
 
 	public void RestartGame (int id)
 	{
-		Debug.Log ("Yep");
 		SceneManager.LoadScene (id);
 	}
 }

@@ -6,5 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Luc/Scenes/menu.unity
+    guid: 480788ace798faa47b0772d0310888c5
+  - enabled: 1
+    path: Assets/Dylan/Game.unity
+    guid: 518203db378ef934893d9b94ad7fcb09
+  - enabled: 1
     path: Assets/Dylan/GameOver.unity
     guid: 639be23c8487cbe489b4f51ce529017f

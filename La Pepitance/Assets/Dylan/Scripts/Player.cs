@@ -57,18 +57,17 @@ public class Player : MonoBehaviour
 		isJumping = true;
 	}
 
-	public void hurt()
+	public void hurt ()
 	{
 		pdv -= 1;
-		if (pdv == 0)
-		{
+		if (pdv == 0) {
 			OnDestroy ();
 		}
 	}
 
-	public void OnDestroy()
+	public void OnDestroy ()
 	{
-
+		SceneManager.LoadScene (2);
 	}
 }
 

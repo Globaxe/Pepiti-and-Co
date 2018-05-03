@@ -51,6 +51,7 @@ public class Autoscroller : MonoBehaviour
 
 	public void NextPlateform ()
 	{
+		speed *= 1.1f;
 		player.Jump ();
 		transform.GetChild (idFocus).GetComponent<Spawn> ().letFocus ();
 		if (idFocus == nbChilds - 1) {

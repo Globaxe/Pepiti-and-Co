@@ -30,6 +30,8 @@ public class GestOpponent : MonoBehaviour {
 		if (transform.childCount<maxOpp) {
 			GameObject opp = Instantiate (opponent, new Vector3 (transform.position.x ,transform.position.y,transform.position.z), transform.rotation);
 			opp.GetComponent<Attack> ().player = player;
+			opp.transform.rotation = Quaternion.Euler (Vector3.up * 180);
+			opp.GetComponentInChildren<TextMesh>().transform.rotation = Quaternion.Euler (Vector3.up * 180);
 			opp.transform.SetParent (transform);
 		}
 	}

@@ -53,5 +53,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   opponent: {fileID: 1077863007226312, guid: ad6ee6e85d2fce346bf0d07aa2bac000, type: 2}
   player: {fileID: 0}
-  speed: 5
+  speed: 10
   maxOpp: 3

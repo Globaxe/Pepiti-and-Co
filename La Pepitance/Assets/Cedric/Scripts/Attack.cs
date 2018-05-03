@@ -20,7 +20,7 @@ public class Attack : MonoBehaviour
 	public GameObject Player;
 	private Vector3 PlayerPos;
 
-	private float Speed = 0.5f;
+	private float Speed = 1.5f;
 
 
 	// Use this for initialization

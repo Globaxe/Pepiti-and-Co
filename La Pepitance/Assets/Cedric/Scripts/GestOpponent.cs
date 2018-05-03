@@ -29,7 +29,7 @@ public class GestOpponent : MonoBehaviour {
 	void Spawn(){
 		if (transform.childCount<maxOpp) {
 			GameObject opp = Instantiate (opponent, new Vector3 (transform.position.x ,transform.position.y,transform.position.z), transform.rotation);
-			opp.GetComponent<Attack> ().Player = player;
+			opp.GetComponent<Attack> ().player = player;
 			opp.transform.SetParent (transform);
 		}
 	}

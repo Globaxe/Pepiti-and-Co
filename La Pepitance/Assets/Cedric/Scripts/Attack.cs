@@ -17,7 +17,7 @@ public class Attack : MonoBehaviour
 	private bool hasFocus;
 	private Autoscroller scroll;
 	private string line;
-	public GameObject Player;
+	public GameObject player;
 	private Vector3 PlayerPos;
 
 	private float Speed = 1.5f;
@@ -59,7 +59,7 @@ public class Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{     
-		PlayerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+		PlayerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
 		transform.position = Vector3.MoveTowards(transform.position, PlayerPos, Speed * Time.deltaTime);
 		
 		if (!dying) {
@@ -83,7 +83,7 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.Equals (Player)) {
+		if (other.gameObject.Equals (player)) {
 			//Player a mal
 			Destroy(this.gameObject);
 		};

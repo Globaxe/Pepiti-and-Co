@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
 
 	public void hurt ()
 	{
+		anim.SetTrigger("hit");
 		pdv -= 1;
 		if (pdv == 0) {
 			OnDestroy ();

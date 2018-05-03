@@ -17,10 +17,10 @@ public class Attack : MonoBehaviour
 	private bool hasFocus;
 	private Autoscroller scroll;
 	private string line;
-	public GameObject Player;
+	public GameObject player;
 	private Vector3 PlayerPos;
 
-	private float Speed = 1.0f;
+	private float Speed = 1.5f;
 
 
 	// Use this for initialization
@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour
 		// Read the random line
 		line = lines [randomNumber];
 
-		hasFocus = true;
+		hasFocus = false;
 		myText = GetComponentInChildren<TextMesh> ();
 		myText.text = line;
 		workingText = new string[myText.text.Length];
@@ -59,7 +59,7 @@ public class Attack : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{     
-		PlayerPos = new Vector3(Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
+		PlayerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
 		transform.position = Vector3.MoveTowards(transform.position, PlayerPos, Speed * Time.deltaTime);
 		
 		if (!dying) {
@@ -83,7 +83,7 @@ public class Attack : MonoBehaviour
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (other.gameObject.Equals (Player)) {
+		if (other.gameObject.Equals (player)) {
 			//Player a mal
 			Destroy(this.gameObject);
 		};
@@ -93,10 +93,12 @@ public class Attack : MonoBehaviour
 	public void giveFocus ()
 	{
 		hasFocus = true;
+		myText.color = Color.yellow;
 	}
 
 	public void letFocus ()
 	{
 		hasFocus = false;
+		myText.color = Color.white;
 	}
 }

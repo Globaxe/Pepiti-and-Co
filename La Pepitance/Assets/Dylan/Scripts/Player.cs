@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 	private bool isJumping;
 	private bool oneJump;
 	Animator anim;
+	private int pdv = 3;
 
 	private float time;
 	public float speed;
@@ -54,6 +55,20 @@ public class Player : MonoBehaviour
 		if (!isJumping)
 			time = Time.time;
 		isJumping = true;
+	}
+
+	public void hurt()
+	{
+		pdv -= 1;
+		if (pdv == 0)
+		{
+			OnDestroy ();
+		}
+	}
+
+	public void OnDestroy()
+	{
+
 	}
 }
 

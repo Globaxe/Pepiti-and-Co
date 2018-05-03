@@ -84,7 +84,7 @@ public class Attack : MonoBehaviour
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.Equals (player)) {
-			//Player a mal
+			player.GetComponent<Player>().hurt();
 			Destroy(this.gameObject);
 		};
 

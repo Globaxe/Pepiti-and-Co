@@ -5,42 +5,46 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-	public float speed;
-	public float horizontalspeed;
-	public float jumpForce;
-	private Rigidbody rb;
-	private bool jumping;
-	private Vector3 rotateValue;
+	Autoscroller scroller;
 
+	private bool isJumping;
+
+	private float time;
+	public float speed;
 	// Use this for initialization
 	void Start ()
 	{
-		rb = GetComponent<Rigidbody> ();
+		scroller = GameObject.FindObjectsOfType<Autoscroller> () [0];
 	}
 
 	void FixedUpdate ()
 	{
-		if (!jumping) {
-			float moveHorizontal = Input.GetAxis ("Horizontal");
-			float moveVertical = Input.GetAxis ("Vertical");
-
-			float moveUp = Input.GetAxis ("Jump");
-
-			rotateValue = new Vector3 (0, moveHorizontal * -1 * horizontalspeed, 0);
-			transform.eulerAngles = transform.eulerAngles - rotateValue;
+		Transform plateform = scroller.GetPateformPlayer ();
 
 
-			if (Input.GetButton ("Jump")) {
-				jumping = true;
-			}
-			Vector3 movement = transform.rotation * new Vector3 (0, 0, moveVertical);
+		if (isJumping) {
+			if (Time.time - time < 1) {
+				transform.position = Vector3.MoveTowards (transform.position, new Vector3 (0, plateform.position.y, 0) + transform.position, 1.5f * speed * Time.deltaTime);
+			} else {
+				transform.position = Vector3.MoveTowards (transform.position, plateform.position, speed * Time.deltaTime);
+					
 
-			rb.AddForce (new Vector3 (0, moveUp * jumpForce, 0));
-			rb.velocity = movement * speed;
-		} else {
-			if (rb.velocity.y == 0) {
-				jumping = false;
+				if (transform.position == plateform.position) {
+					
+					transform.SetParent (plateform);
+					isJumping = false;
+				}
+
 			}
 		}
 	}
+
+	public void Jump ()
+	{
+		transform.SetParent (null);
+		if (!isJumping)
+			time = Time.time;
+		isJumping = true;
+	}
 }
+

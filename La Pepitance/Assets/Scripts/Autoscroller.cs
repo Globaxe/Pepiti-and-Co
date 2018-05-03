@@ -10,11 +10,14 @@ public class Autoscroller : MonoBehaviour
 
 	private int idFocus;
 	private bool wait;
+
+	private Player player;
 	// Use this for initialization
 	void Start ()
 	{
-		idFocus = 0;
+		idFocus = 1;
 		wait = false;
+		player = GameObject.FindObjectsOfType<Player> () [0];
 	}
 	
 	// Update is called once per frame
@@ -48,6 +51,7 @@ public class Autoscroller : MonoBehaviour
 
 	public void NextPlateform ()
 	{
+		player.Jump ();
 		transform.GetChild (idFocus).GetComponent<Spawn> ().letFocus ();
 		if (idFocus == nbChilds - 1) {
 			idFocus =	nbChilds - 1;
@@ -55,5 +59,12 @@ public class Autoscroller : MonoBehaviour
 		} else {
 			idFocus =	idFocus + 1;
 		}
+	}
+
+	public Transform GetPateformPlayer ()
+	{
+		if (idFocus > 0)
+			return transform.GetChild (idFocus - 1);
+		return null;
 	}
 }

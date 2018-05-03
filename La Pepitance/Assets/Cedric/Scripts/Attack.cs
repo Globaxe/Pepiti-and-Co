@@ -93,10 +93,12 @@ public class Attack : MonoBehaviour
 	public void giveFocus ()
 	{
 		hasFocus = true;
+		myText.color = Color.yellow;
 	}
 
 	public void letFocus ()
 	{
 		hasFocus = false;
+		myText.color = Color.white;
 	}
 }

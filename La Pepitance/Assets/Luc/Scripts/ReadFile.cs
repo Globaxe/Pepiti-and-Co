@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 using UnityEngine.UI;
 
@@ -16,7 +16,8 @@ public class ReadFile : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		//Maybe change the path
-		string fileName = "Assets/Luc/Resources/demi_liste_francais_utf8.txt";
+		//string fileName = "Assets/Luc/Resources/demi_liste_francais_utf8.txt";
+		string fileName = Application.dataPath+"/demi_liste_francais_utf8.txt";
 
 		List<string> lines = new List<string>();
 		StreamReader reader = File.OpenText (fileName);

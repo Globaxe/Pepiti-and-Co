@@ -10,6 +10,7 @@ public class Autoscroller : MonoBehaviour
 
 	private int idFocus;
 	private bool wait;
+	private ScoreManager scoreManager;
 
 	private Player player;
 	// Use this for initialization
@@ -18,6 +19,7 @@ public class Autoscroller : MonoBehaviour
 		idFocus = 1;
 		wait = false;
 		player = GameObject.FindObjectsOfType<Player> () [0];
+		scoreManager = GameObject.FindObjectsOfType<ScoreManager> ()[0];
 	}
 	
 	// Update is called once per frame
@@ -53,6 +55,7 @@ public class Autoscroller : MonoBehaviour
 	{
 		speed *= 1.1f;
 		player.Jump ();
+		scoreManager.incScore ();
 		transform.GetChild (idFocus).GetComponent<Spawn> ().letFocus ();
 		if (idFocus == nbChilds - 1) {
 			idFocus =	nbChilds - 1;

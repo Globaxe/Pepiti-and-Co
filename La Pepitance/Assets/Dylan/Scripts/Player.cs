@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
 	private bool oneJump;
 	Animator anim;
 	private int pdv = 3;
+	private TextMesh affPdv;
 
 	private float time;
 	public float speed;
@@ -19,6 +21,8 @@ public class Player : MonoBehaviour
 	{
 		scroller = GameObject.FindObjectsOfType<Autoscroller> () [0];
 		anim = GetComponentInChildren<Animator> ();
+		affPdv = GetComponentInChildren<TextMesh> ();
+		setAffPdv();
 		oneJump = true;
 	}
 
@@ -61,6 +65,7 @@ public class Player : MonoBehaviour
 	{
 		anim.SetTrigger("hit");
 		pdv -= 1;
+		setAffPdv ();
 		if (pdv == 0) {
 			OnDestroy ();
 		}
@@ -69,6 +74,14 @@ public class Player : MonoBehaviour
 	public void OnDestroy ()
 	{
 		SceneManager.LoadScene (2);
+	}
+
+	private void setAffPdv()
+	{
+		affPdv.text = "";
+		for (int i = 0; i < pdv; i++) {
+			affPdv.text += "♥ ";
+		}
 	}
 }
 

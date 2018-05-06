@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
+//using UnityEditor;
 using System.IO;
 using UnityEngine.UI;
 
@@ -17,10 +17,12 @@ public class Attack : MonoBehaviour
 	private bool hasFocus;
 	private Autoscroller scroll;
 	private string line;
-	public GameObject player;
+	public GameObject player = null;
 	private Vector3 PlayerPos;
+	private ScoreManager scoreManager;
+	private bool hurtOnlyOnce;
 
-	private float Speed = 1.5f;
+	private float Speed = 2.5f;
 
 
 	// Use this for initialization
@@ -28,9 +30,10 @@ public class Attack : MonoBehaviour
 	void Start ()
 	{
 
-
+		hurtOnlyOnce = true;
 		//Maybe change the path
-		string fileName = "Assets/Luc/Resources/demi_liste_francais_utf8.txt";
+		string fileName = Application.dataPath+"/demi_liste_francais_utf8.txt";
+		scoreManager = GameObject.FindObjectsOfType<ScoreManager> ()[0];
 
 		List<string> lines = new List<string> ();
 		StreamReader reader = File.OpenText (fileName);
@@ -57,7 +60,7 @@ public class Attack : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
 	{     
 		PlayerPos = new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z);
 		transform.position = Vector3.MoveTowards(transform.position, PlayerPos, Speed * Time.deltaTime);
@@ -78,13 +81,18 @@ public class Attack : MonoBehaviour
 			}
 
 		} else {
+			scoreManager.incScore ();
 			Destroy(this.gameObject);
 		}
 	}
 
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.Equals (player)) {
-			player.GetComponent<Player>().hurt();
+			if (hurtOnlyOnce) {
+				player.GetComponent<Player>().hurt();
+				hurtOnlyOnce = false;
+			}
+
 			Destroy(this.gameObject);
 		};
 

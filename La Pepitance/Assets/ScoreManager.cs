@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour {
 	void Start () {
 		score = GetComponentInChildren<Text> ();
 		counter = 0;
+		StaticScore.Score = counter;
 		score.text = "Score : " + counter;
 	}
 	
@@ -22,6 +23,7 @@ public class ScoreManager : MonoBehaviour {
 	public void incScore()
 	{
 		counter += 1;
+		StaticScore.Score = counter;
 		score.text = "Score : " + counter;
 	}
 }

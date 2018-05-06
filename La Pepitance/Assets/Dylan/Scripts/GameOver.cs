@@ -8,6 +8,7 @@ public class GameOver : MonoBehaviour
 {
 
 	public Text myText;
+	public Text Score;
 	private int counter;
 	private bool spawning;
 	private Color EndColor;
@@ -29,6 +30,7 @@ public class GameOver : MonoBehaviour
 		spawning = false;
 		EndColor = Color.green;
 		EndColor.a = 1;
+		Score.text = "Votre score est de : " + StaticScore.Score;
 	}
 	// Update is called once per frame
 	void Update ()
